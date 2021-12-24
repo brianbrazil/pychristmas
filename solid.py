@@ -2,8 +2,6 @@ import sys
 
 from rpi_ws281x import PixelStrip
 from color import Color
-from default_programs import rainbowCycle, colorWipe, clear
-from my_programs import twinkle, walk
 
 LED_COUNT = 200        # Number of LED pixels.
 LED_PIN = 18          # GPIO pin connected to the pixels (18 uses PWM!).

@@ -1,6 +1,6 @@
 from light_strip import LightStrip
 from color import Color
-from my_programs import Chase, RainbowTwinkle
+from programs import Chase, RainbowTwinkle
 
 COLORS = [
     [Color.BLACK] * 2,
