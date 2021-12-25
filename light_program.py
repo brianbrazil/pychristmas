@@ -6,7 +6,7 @@ class LightProgram(ABC):
         pass
 
     def loop(self):
-        pass
+        return None
 
     def flatten(self, nested_list):
         return list(
@@ -24,3 +24,6 @@ class LightProgram(ABC):
 
     def show(self):
         self.strip.show()
+
+    def pixel_range(self):
+        return range(self.strip.numPixels())

@@ -28,4 +28,4 @@ class LightStrip:
     def blackout(self):
         for i in range(self.numPixels()):
             self.strip.setPixelColor(i, Color.BLACK)
-            self.strip.show()
+        self.strip.show()

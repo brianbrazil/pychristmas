@@ -1,13 +1,13 @@
 from light_strip import LightStrip
 from color import Color
-from programs import Chase, RainbowTwinkle
+from programs import Chase, Twinkle
 
 COLORS = [
-    [Color.BLACK] * 2,
+    [Color.BLACK] * 5,
     Color.RAINBOW
 ]
 
 if __name__ == '__main__':
     strip = LightStrip(200)
-    # strip.run_program(Chase(COLORS, sleep=0.1))
-    strip.run(RainbowTwinkle())
+    # strip.run(Chase(COLORS, sleep=0.1))
+    strip.run(Twinkle(COLORS))
