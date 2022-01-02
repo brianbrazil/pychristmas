@@ -51,3 +51,43 @@ class Twinkle(LightProgram):
             self.set_pixel(i, random.choice(self.colors))
         time.sleep(random.randrange(8, 15) / 10000)
         self.show()
+
+class CrossFade(LightProgram):
+    def __init__(self, colors):
+        self.colors = self.flatten(colors)
+        self.current_color = random.choice(self.colors)
+
+    def loop(self):
+        goal_color = self.random_color()
+        while self.current_color != goal_color:
+            color = self.next_color(self.current_color, goal_color)
+            self.current_color = color
+            self.flood()
+            self.show()
+            time.sleep(0.001)
+        time.sleep(0.9)
+
+    def flood(self):
+        for i in self.pixel_range():
+            self.set_pixel(i, self.current_color)
+
+    def random_color(self):
+        next_color = random.choice(self.colors)
+        while next_color == self.current_color:
+            next_color = random.choice(self.colors)
+        return next_color
+
+    def next_color(self, current, goal):
+        return Color(
+            self.next_number(current.red, goal.red),
+            self.next_number(current.green, goal.green),
+            self.next_number(current.blue, goal.blue)
+        )
+
+    def next_number(self, current, goal):
+        if goal > current:
+            return current + 1
+        elif goal < current:
+            return current - 1
+        else:
+            return current
